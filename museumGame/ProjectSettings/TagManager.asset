@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - readingTag
+  - button
+  - button2
+  - helpButton
   layers:
   - Default
   - TransparentFX

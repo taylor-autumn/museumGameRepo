@@ -10,6 +10,7 @@ public class rayCast : MonoBehaviour
     public Camera playerCam;
     public LayerMask layerMask;
     public galleryItem uiIsVisible;
+    public GameObject cursorImage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,11 +45,12 @@ public class rayCast : MonoBehaviour
         {
             mouseSelect();
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (uiIsVisible.galleryPanel.activeSelf==true)
             {
                 uiIsVisible.galleryPanel.SetActive(false);
+                cursorImage.SetActive(true);
             }
         }
 
@@ -66,11 +68,12 @@ public class rayCast : MonoBehaviour
             galleryItem galleryInfo = mouseDetect.collider.GetComponent<galleryItem>();
             uiIsVisible = galleryInfo;
             print("I have  been hit");
+            cursorImage.SetActive(false);
                
             galleryInfo.galleryPanel.SetActive(true);
             galleryInfo.panelText.text = galleryInfo.galleryText;
-        }   
-        
+        }
+
     }
 
 
